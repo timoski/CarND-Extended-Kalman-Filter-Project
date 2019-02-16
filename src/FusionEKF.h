@@ -44,6 +44,10 @@ class FusionEKF {
   Eigen::MatrixXd R_radar_;
   Eigen::MatrixXd H_laser_;
   Eigen::MatrixXd Hj_;
+  Eigen::MatrixXd CalculateJacobian(const Eigen::VectorXd& x_state);
+  Eigen::VectorXd ConvertPolarToCartasian(const Eigen::VectorXd& polar);
+  static constexpr double noise_ax = 9.0;
+  static constexpr double noise_ay = 9.0;
 };
 
 #endif // FusionEKF_H_
